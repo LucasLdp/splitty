@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:splitty/utils/format_currency.dart';
 
-class SavingGoal extends StatelessWidget {
+class SavingGoalPreview extends StatelessWidget {
   final String name;
   final Color color;
 
-  const SavingGoal({super.key, required this.name, required this.color});
+  const SavingGoalPreview({super.key, required this.name, required this.color});
 
   @override
   Widget build(BuildContext context) {
