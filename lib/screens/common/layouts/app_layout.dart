@@ -11,11 +11,6 @@ class AppLayout extends StatelessWidget {
   static const List<AppTab> tabs = [
     AppTab(route: '/home', label: 'Início', icon: Icons.home_outlined),
     AppTab(route: '/groups', label: 'Grupos', icon: Icons.group_outlined),
-    AppTab(
-      route: '/activity',
-      label: 'Atividade',
-      icon: Icons.show_chart_outlined,
-    ),
     AppTab(route: '/profile', label: 'Perfil', icon: Icons.person_outline),
   ];
 
