@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:splitty/screens/home/widgets/saving_goal.dart';
+import 'package:splitty/screens/home/widgets/saving_goal_preview.dart';
 
 class HomeSavingGoals extends StatelessWidget {
   const HomeSavingGoals({super.key});
@@ -17,8 +17,8 @@ class HomeSavingGoals extends StatelessWidget {
         Column(
           spacing: 12,
           children: [
-            SavingGoal(name: "Viagem para a praia", color: Colors.blue),
-            SavingGoal(name: "Festa de aniversário", color: Colors.green),
+            SavingGoalPreview(name: "Viagem para a praia", color: Colors.blue),
+            SavingGoalPreview(name: "Festa de aniversário", color: Colors.green),
           ],
         ),
       ],
