@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:splitty/utils/colors.dart';
 import 'package:splitty/screens/auth/widgets/custom_button.dart';
 import 'package:splitty/screens/auth/widgets/icon_title.dart';
@@ -54,7 +55,10 @@ class AuthScreen extends StatelessWidget {
                 ],
               ),
             ),
-            CustomButton(text: "Acesse Agora", onPressed: () {}),
+            CustomButton(
+              text: "Acesse Agora",
+              onPressed: () => context.go('/home'),
+            ),
           ],
         ),
       ),
