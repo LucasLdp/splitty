@@ -1,0 +1,27 @@
+import 'package:flutter/material.dart';
+import 'package:splitty/screens/home/widgets/saving_goal.dart';
+
+class HomeSavingGoals extends StatelessWidget {
+  const HomeSavingGoals({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      spacing: 20,
+      children: [
+        Text(
+          "Caixinhas Recentes",
+          style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+        ),
+        Column(
+          spacing: 12,
+          children: [
+            SavingGoal(name: "Viagem para a praia", color: Colors.blue),
+            SavingGoal(name: "Festa de aniversário", color: Colors.green),
+          ],
+        ),
+      ],
+    );
+  }
+}
