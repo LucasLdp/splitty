@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 class IconTile extends StatelessWidget {
-  // IconTile Props
   final IconData icon;
   final String description;
   final Color backgroundColor;
