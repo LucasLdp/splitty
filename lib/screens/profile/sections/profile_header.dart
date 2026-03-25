@@ -9,7 +9,7 @@ class ProfileHeader extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        CustomTitle(title: "Meu Perfil"),
+        const CustomTitle(title: 'Meu Perfil'),
         Container(
           padding: EdgeInsets.all(16),
           margin: EdgeInsets.only(top: 16),
