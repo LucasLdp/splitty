@@ -2,8 +2,9 @@ import 'package:go_router/go_router.dart';
 import 'package:splitty/screens/auth/page/auth_screen.dart';
 import 'package:splitty/screens/common/layouts/app_layout.dart';
 import 'package:splitty/screens/goals/page/goal_detail_screen.dart';
+import 'package:splitty/screens/goals/page/goal_transaction.dart';
 import 'package:splitty/screens/goals/page/goals_list_screen.dart';
-import 'package:splitty/screens/goals/page/new_detail_screen.dart';
+import 'package:splitty/screens/goals/page/new_goal_screen.dart';
 import 'package:splitty/screens/home/page/home_screen.dart';
 import 'package:splitty/screens/profile/page/profile_screen.dart';
 
@@ -43,15 +44,23 @@ class RouteConfig {
                 path: ':id',
                 builder: (ctx, state) {
                   final title = getGoalDetailTitle(state);
-                  return GoalDetailScreen(title: title);
+                  final goalId = state.pathParameters['id'] ?? '';
+                  return GoalDetailScreen(title: title, goalId: goalId);
                 },
+                routes: [
+                  GoRoute(
+                    name: 'goal-transaction',
+                    path: 'transaction',
+                    builder: (ctx, state) => const GoalTransaction(),
+                  ),
+                ],
               ),
             ],
           ),
           GoRoute(
             name: 'new-goal',
             path: '/new-goal',
-            builder: (ctx, state) => const NewDetailScreen(),
+            builder: (ctx, state) => const NewGoalScreen(),
           ),
           GoRoute(
             name: 'profile',
