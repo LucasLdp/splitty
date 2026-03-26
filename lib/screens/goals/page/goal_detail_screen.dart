@@ -1,17 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:splitty/screens/auth/widgets/custom_button.dart';
 import 'package:splitty/screens/common/layouts/non_tab_screen_layout.dart';
 import 'package:splitty/screens/goals/sections/goal_detail/goal_partipants_list.dart';
 import 'package:splitty/screens/goals/sections/goal_detail/goal_transactions_list.dart';
 import 'package:splitty/screens/goals/sections/goal_detail/goals_detail_header.dart';
-import 'package:splitty/screens/goals/widgets/goal_amount_summary_card.dart';
 import 'package:splitty/screens/goals/widgets/participants_contribution_list_sheet.dart';
 import 'package:splitty/screens/home/widgets/transactions_list_sheet.dart';
+import 'package:splitty/utils/colors.dart';
 
 class GoalDetailScreen extends StatelessWidget {
   final String title;
+  final String goalId;
 
-  const GoalDetailScreen({super.key, required this.title});
+  const GoalDetailScreen({
+    super.key,
+    required this.title,
+    required this.goalId,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -46,15 +52,7 @@ class GoalDetailScreen extends StatelessWidget {
       fallbackRoute: '/goals',
       child: ListView(
         children: [
-          GoalsDetailHeader(title: title),
-          const SizedBox(height: 16),
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16),
-            child: GoalAmountSummaryCard(
-              plannedAmount: 1000.00,
-              depositedAmount: 120.00,
-            ),
-          ),
+          GoalsDetailHeader(title: title, goalId: goalId),
           const SizedBox(height: 24),
           GoalPartipantsList(participants: participants),
           const SizedBox(height: 24),
@@ -62,27 +60,34 @@ class GoalDetailScreen extends StatelessWidget {
           const SizedBox(height: 16),
           Padding(
             padding: const EdgeInsets.fromLTRB(16, 0, 16, 24),
-            child: Row(
+            child: Column(
               children: [
-                Expanded(
+                const SizedBox(height: 12),
+                SizedBox(
+                  width: double.infinity,
                   child: CustomButton(
                     text: 'Editar',
                     icon: Icons.edit,
                     onPressed: () {},
-                    padding: const EdgeInsets.symmetric(vertical: 12),
+                    padding: const EdgeInsets.symmetric(vertical: 14),
                     fontSize: 14,
-                    backgroundColor: Colors.blueAccent,
+                    backgroundColor: AppColors.primarySoft,
+                    textColor: AppColors.primary,
+                    iconColor: AppColors.primary,
                   ),
                 ),
-                const SizedBox(width: 12),
-                Expanded(
+                const SizedBox(height: 12),
+                SizedBox(
+                  width: double.infinity,
                   child: CustomButton(
                     text: 'Remover',
                     icon: Icons.delete_outline,
                     onPressed: () {},
-                    padding: const EdgeInsets.symmetric(vertical: 12),
+                    padding: const EdgeInsets.symmetric(vertical: 14),
                     fontSize: 14,
-                    backgroundColor: Colors.redAccent,
+                    backgroundColor: AppColors.primarySoft,
+                    textColor: AppColors.primary,
+                    iconColor: AppColors.primary,
                   ),
                 ),
               ],
