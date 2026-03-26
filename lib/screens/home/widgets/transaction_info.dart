@@ -38,7 +38,6 @@ class TransactionInfo extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          // Ícone + Nome e Tipo
           Row(
             children: [
               Container(
@@ -68,7 +67,7 @@ class TransactionInfo extends StatelessWidget {
               ),
             ],
           ),
-          // Valor com cor
+
           Text(
             '$sign${formatCurrency(amount)}',
             style: TextStyle(

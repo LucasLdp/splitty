@@ -11,14 +11,17 @@ class HomeSavingGoals extends StatelessWidget {
       spacing: 20,
       children: [
         Text(
-          "Caixinhas Recentes",
+          "Metas Recentes",
           style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
         ),
         Column(
           spacing: 12,
           children: [
             SavingGoalPreview(name: "Viagem para a praia", color: Colors.blue),
-            SavingGoalPreview(name: "Festa de aniversário", color: Colors.green),
+            SavingGoalPreview(
+              name: "Festa de aniversário",
+              color: Colors.green,
+            ),
           ],
         ),
       ],
