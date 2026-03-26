@@ -16,49 +16,63 @@ class AuthScreen extends StatelessWidget {
       body: SafeArea(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Container(
-              margin: const EdgeInsets.only(top: 32.0),
-              width: screenWidth * 0.9,
-              child: Column(
-                spacing: screenWidth * 0.05,
-                children: [
-                  Text(
-                    'Seu dinheiro, suas metas, juntos.',
-                    style: TextStyle(
-                      fontSize: 40,
-                      fontWeight: FontWeight.bold,
-                      height: 1.2,
+            Expanded(
+              child: Container(
+                margin: const EdgeInsets.only(top: 32.0),
+                padding: const EdgeInsets.all(16),
+                width: screenWidth * 0.9,
+                child: Column(
+                  spacing: screenWidth * 0.05,
+                  children: [
+                    Text(
+                      'Seu dinheiro, suas metas, juntos.',
+                      style: TextStyle(
+                        fontSize: 40,
+                        fontWeight: FontWeight.bold,
+                        height: 1.2,
+                      ),
                     ),
-                  ),
-                  const Text(
-                    'Crie grupos, defina metas e acompanhe o progresso financeiro de todos.',
-                    style: TextStyle(fontSize: 18, color: Colors.grey),
-                  ),
-                  Column(
-                    spacing: 16.0,
-                    children: [
-                      IconTile(
-                        icon: Icons.group,
-                        description: "Controle Total de colaboradores",
-                        backgroundColor: AppColors.primarySoft,
-                        iconColor: AppColors.primary,
-                      ),
-                      IconTile(
-                        icon: Icons.attach_money,
-                        description: "Acompanhe o progresso financeiro",
-                        backgroundColor: AppColors.primarySoft,
-                        iconColor: AppColors.primary,
-                      ),
-                    ],
-                  ),
-                ],
+                    const Text(
+                      'Crie grupos, defina metas e acompanhe o progresso financeiro de todos.',
+                      style: TextStyle(fontSize: 18, color: Colors.grey),
+                    ),
+                    Column(
+                      spacing: 16.0,
+                      children: [
+                        IconTile(
+                          icon: Icons.group,
+                          description: "Controle Total de colaboradores",
+                          backgroundColor: AppColors.primarySoft,
+                          iconColor: AppColors.primary,
+                        ),
+                        IconTile(
+                          icon: Icons.attach_money,
+                          description: "Acompanhe o progresso financeiro",
+                          backgroundColor: AppColors.primarySoft,
+                          iconColor: AppColors.primary,
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ),
-            CustomButton(
-              text: "Acesse Agora",
-              onPressed: () => context.go('/home'),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(16, 0, 16, 24),
+              child: SizedBox(
+                width: double.infinity,
+                child: CustomButton(
+                  text: 'ElevatedButton Ativo',
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 32,
+                    vertical: 18,
+                  ),
+                  onPressed: () {
+                    context.push('/home');
+                  },
+                ),
+              ),
             ),
           ],
         ),
