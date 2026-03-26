@@ -63,7 +63,7 @@ class AuthScreen extends StatelessWidget {
               child: SizedBox(
                 width: double.infinity,
                 child: CustomButton(
-                  text: 'ElevatedButton Ativo',
+                  text: 'Vamos começar',
                   padding: const EdgeInsets.symmetric(
                     horizontal: 32,
                     vertical: 18,
