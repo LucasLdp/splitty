@@ -4,6 +4,7 @@ import 'package:splitty/screens/common/layouts/non_tab_screen_layout.dart';
 import 'package:splitty/screens/goals/sections/goal_detail/goal_partipants_list.dart';
 import 'package:splitty/screens/goals/sections/goal_detail/goal_transactions_list.dart';
 import 'package:splitty/screens/goals/sections/goal_detail/goals_detail_header.dart';
+import 'package:splitty/screens/goals/widgets/goal_amount_summary_card.dart';
 import 'package:splitty/screens/goals/widgets/participants_contribution_list_sheet.dart';
 import 'package:splitty/screens/home/widgets/transactions_list_sheet.dart';
 
@@ -46,6 +47,14 @@ class GoalDetailScreen extends StatelessWidget {
       child: ListView(
         children: [
           GoalsDetailHeader(title: title),
+          const SizedBox(height: 16),
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 16),
+            child: GoalAmountSummaryCard(
+              plannedAmount: 1000.00,
+              depositedAmount: 120.00,
+            ),
+          ),
           const SizedBox(height: 24),
           GoalPartipantsList(participants: participants),
           const SizedBox(height: 24),
