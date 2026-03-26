@@ -36,7 +36,6 @@ class ProfileHeader extends StatelessWidget {
                     style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                   ),
                   Text("lucas.silva@example.com"),
-                  Text("Pix: 123456789"),
                 ],
               ),
             ],
