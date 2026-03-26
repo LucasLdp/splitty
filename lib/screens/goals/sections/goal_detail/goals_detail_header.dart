@@ -1,12 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:splitty/screens/auth/widgets/custom_button.dart';
 import 'package:splitty/screens/common/widgets/custom_title.dart';
+import 'package:splitty/screens/goals/widgets/goal_amount_summary_card.dart';
 import 'package:splitty/screens/goals/widgets/goal_partcipants_avatar.dart';
+import 'package:splitty/utils/colors.dart';
 import 'package:splitty/utils/format_currency.dart';
 
 class GoalsDetailHeader extends StatelessWidget {
   final String title;
+  final String goalId;
 
-  const GoalsDetailHeader({super.key, required this.title});
+  const GoalsDetailHeader({
+    super.key,
+    required this.title,
+    required this.goalId,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -24,6 +33,7 @@ class GoalsDetailHeader extends StatelessWidget {
           radius: 12,
           overlap: 8,
         ),
+        GoalAmountSummaryCard(plannedAmount: 1000.00, depositedAmount: 120.00),
         Row(
           spacing: 16,
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -88,6 +98,19 @@ class GoalsDetailHeader extends StatelessWidget {
               ),
             ),
           ],
+        ),
+        SizedBox(
+          width: double.infinity,
+          child: CustomButton(
+            text: 'Adicionar movimentação',
+            icon: Icons.add_circle_outline,
+            onPressed: () {
+              context.go('/goals/$goalId/transaction');
+            },
+            padding: const EdgeInsets.symmetric(vertical: 14),
+            fontSize: 14,
+            backgroundColor: AppColors.primary,
+          ),
         ),
       ],
     );
