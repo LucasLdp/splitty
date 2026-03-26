@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:splitty/screens/auth/widgets/custom_button.dart';
 import 'package:splitty/screens/common/widgets/custom_title.dart';
 import 'package:splitty/screens/home/widgets/total_colaboration_info.dart';
@@ -27,7 +28,9 @@ class HomeHeader extends StatelessWidget {
           width: double.infinity,
           child: CustomButton(
             text: 'Nova contribuição',
-            onPressed: () {},
+            onPressed: () {
+              context.go("/new-goal");
+            },
             fontSize: 18,
           ),
         ),
