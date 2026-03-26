@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:splitty/screens/auth/widgets/custom_button.dart';
 import 'package:splitty/screens/common/widgets/custom_title.dart';
-import 'package:splitty/screens/home/widgets/new_contribution_button.dart';
 import 'package:splitty/screens/home/widgets/total_colaboration_info.dart';
 
 class HomeHeader extends StatelessWidget {
@@ -13,7 +13,7 @@ class HomeHeader extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            const CustomTitle(title: 'Suas caixinhas'),
+            const CustomTitle(title: 'Suas Metas'),
             const CircleAvatar(
               radius: 20,
               backgroundImage: NetworkImage(
@@ -23,7 +23,14 @@ class HomeHeader extends StatelessWidget {
           ],
         ),
         TotalColaborationInfo(totalColaboration: 100.00),
-        const NewContributionButton(),
+        SizedBox(
+          width: double.infinity,
+          child: CustomButton(
+            text: 'Nova contribuição',
+            onPressed: () {},
+            fontSize: 18,
+          ),
+        ),
       ],
     );
   }
