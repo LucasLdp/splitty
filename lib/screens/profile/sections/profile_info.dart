@@ -14,14 +14,7 @@ class ProfileInfo extends StatelessWidget {
           "Informações de Conta",
           style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
         ),
-        ProfileConfigTile(
-          child: ListTile(
-            leading: Icon(Icons.account_balance_wallet_outlined),
-            title: Text("Chave Pix"),
-            trailing: Icon(Icons.chevron_right),
-            onTap: () {},
-          ),
-        ),
+
         ProfileConfigTile(
           child: ListTile(
             leading: Icon(Icons.lock_outline),
