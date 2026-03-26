@@ -8,13 +8,26 @@ class SplittyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final baseTheme = ThemeData(
+      primaryColor: AppColors.primary,
+      scaffoldBackgroundColor: AppColors.background,
+      canvasColor: AppColors.background,
+      fontFamily: GoogleFonts.inter().fontFamily,
+    );
+
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primaryColor: AppColors.primary,
-        scaffoldBackgroundColor: AppColors.background,
-        fontFamily: GoogleFonts.inter().fontFamily,
+      theme: baseTheme.copyWith(
+        colorScheme: baseTheme.colorScheme.copyWith(
+          surface: AppColors.background,
+        ),
       ),
+      builder: (context, child) {
+        return ColoredBox(
+          color: AppColors.background,
+          child: child ?? const SizedBox.shrink(),
+        );
+      },
       routerConfig: RouteConfig.routes,
     );
   }
