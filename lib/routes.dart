@@ -3,14 +3,16 @@ import 'package:splitty/screens/auth/page/auth_screen.dart';
 import 'package:splitty/screens/common/layouts/app_layout.dart';
 import 'package:splitty/screens/goals/page/goal_detail_screen.dart';
 import 'package:splitty/screens/goals/page/goals_list_screen.dart';
+import 'package:splitty/screens/goals/page/new_detail_screen.dart';
 import 'package:splitty/screens/home/page/home_screen.dart';
 import 'package:splitty/screens/profile/page/profile_screen.dart';
 
 class RouteConfig {
-  static const homeRouteName = 'home';
-  static const goalsRouteName = 'goals';
-  static const goalDetailRouteName = 'goal-detail';
-  static const profileRouteName = 'profile';
+  static String getGoalDetailTitle(GoRouterState state) {
+    final id = state.pathParameters['id'] ?? '';
+    final titleFromExtra = state.extra is String ? state.extra as String : null;
+    return titleFromExtra ?? 'Detalhes da Meta #$id';
+  }
 
   static final GoRouter routes = GoRouter(
     routes: [
@@ -27,33 +29,32 @@ class RouteConfig {
         },
         routes: [
           GoRoute(
-            name: homeRouteName,
+            name: 'home',
             path: '/home',
             builder: (ctx, state) => const HomeScreen(),
           ),
           GoRoute(
-            name: goalsRouteName,
+            name: 'goals',
             path: '/goals',
             builder: (ctx, state) => const GoalsListScreen(),
             routes: [
               GoRoute(
-                name: goalDetailRouteName,
+                name: 'goal-detail',
                 path: ':id',
                 builder: (ctx, state) {
-                  final id = state.pathParameters['id'] ?? '';
-                  final titleFromExtra = state.extra is String
-                      ? state.extra as String
-                      : null;
-
-                  return GoalDetailScreen(
-                    title: titleFromExtra ?? 'Detalhes da Meta #$id',
-                  );
+                  final title = getGoalDetailTitle(state);
+                  return GoalDetailScreen(title: title);
                 },
               ),
             ],
           ),
           GoRoute(
-            name: profileRouteName,
+            name: 'new-goal',
+            path: '/new-goal',
+            builder: (ctx, state) => const NewDetailScreen(),
+          ),
+          GoRoute(
+            name: 'profile',
             path: '/profile',
             builder: (ctx, state) => const ProfileScreen(),
           ),
